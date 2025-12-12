@@ -19,4 +19,4 @@ System.out.print("Joueur 2, entre ton nom : ");
 String joueur2 = scanner.nextLine();// liy sa ap retire le klas yo kreye;
 // joueur 1 an dwe change en getname de klas joueur  lan pou nou ka itilize non li nan tout jwèt la;
     }
-}
+  }
