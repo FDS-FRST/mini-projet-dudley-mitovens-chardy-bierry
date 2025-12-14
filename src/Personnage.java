@@ -1,4 +1,4 @@
-// creation de la classe Personnage
+// Création de la classe Personnage
 public class Personnage {
     private int vie;
     private int attaque;
@@ -12,56 +12,47 @@ public class Personnage {
     }
 
     // Constructeur alternatif
-    public Personnage(String nom, int vie) {
+    public Personnage(String nom) {
         this.nom = nom;
-        this.vie = 100;
+        this.vie = 100;   // valeur par défaut
         this.attaque = 20; // valeur par défaut
     }
 
     /** Accesseurs */
-    public int getVie() {
-        return vie;
+    public int getVie() { return vie; }
+    public void setVie(int vie) { this.vie = vie; }
+
+    public int getAttaque() { return attaque; }
+    public void setAttaque(int attaque) { this.attaque = attaque; }
+
+    public String getNom() { return nom; }
+    public void setNom(String nom) { this.nom = nom; }
+
+    // Vérification si le personnage est toujours vivant
+    public boolean estVivant() {
+        return vie > 0;
     }
 
-    public void setVie(int vie) {
-        this.vie = vie;
-    }
-
-    public int getAttaque() {
-        return attaque;
-    }
-
-    public void setAttaque(int attaque) {
-        this.attaque = attaque;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    //verification si le personnage est toujours vivant !!
-    public boolean estVivant () {
-        return vie >0;
-    }
-// methode attaque une autre personne
-    public void attaquer (Personnage cible) {
+    // Méthode attaquer une autre personne
+    public void attaquer(Personnage cible) {
         if (this.estVivant()) {
-
-            // la vie ne peut etre egale a zero
-            cible.vie = cible.vie - this.attaque;
-            System.out.println (cible.nom + "perd" + this.attaque + "points de vie !");
+            cible.defendre(this.attaque);
         } else {
-            System.out.println (this.nom + "est mort et ne peut pas attaquer !");
+            System.out.println(this.nom + " est mort et ne peut pas attaquer !");
         }
+    }
 
+    // Nouvelle méthode : défendre
+    public void defendre(int degats) {
+        this.vie = Math.max(this.vie - degats, 0);
+        System.out.println(nom + " perd " + degats + " points de vie !");
     }
+
+    // Afficher l'état
     public void afficherEtat() {
-        System.out.println (nom + " - " + vie + "HP");
+        System.out.println(nom + " - " + vie + " HP");
     }
+
     // Soigner un personnage
     public void soigner(int points) {
         if (estVivant()) {
@@ -72,9 +63,29 @@ public class Personnage {
         }
     }
 
-    // Afficher toutes les infos
-    public void afficherInfos() {
-        System.out.println(nom + " - Vie: " + vie + " HP - Attaque: " + attaque);
+    // Augmenter l'attaque
+    public void augmenterAttaque(int points) {
+        this.attaque += points;
+        System.out.println(nom + " augmente son attaque de " + points + " !");
     }
 
-}a
+    // Afficher toutes les infos
+    public void afficherInfos() {
+        System.out.println(this.toString());
+    }
+
+    // Redéfinition toString
+    @Override
+    public String toString() {
+        return nom + " - Vie: " + vie + " HP - Attaque: " + attaque;
+    }
+
+    // Méthode statique : duel
+    public static void duel(Personnage p1, Personnage p2) {
+        while (p1.estVivant() && p2.estVivant()) {
+            p1.attaquer(p2);
+            if (p2.estVivant()) p2.attaquer(p1);
+        }
+        System.out.println("Le duel est terminé !");
+    }
+}
