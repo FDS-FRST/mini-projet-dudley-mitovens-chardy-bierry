@@ -29,3 +29,13 @@ public class Joueur {
         }
         return false;
     }
+    // Affiche tous les personnages de l'équipe
+    public void afficherEquipe() {
+        System.out.println("Équipe de " + nom + ":");
+        // Affiche chaque personnage qui existe
+        for (Personnage p : equipe) {
+            if (p != null) {
+                p.afficherEtat();
+            }
+        }
+    }
