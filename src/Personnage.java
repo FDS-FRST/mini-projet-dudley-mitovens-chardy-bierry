@@ -62,6 +62,19 @@ public class Personnage {
     public void afficherEtat() {
         System.out.println (nom + " - " + vie + "HP");
     }
+    // Soigner un personnage
+    public void soigner(int points) {
+        if (estVivant()) {
+            this.vie = Math.min(this.vie + points, 100); // limite max
+            System.out.println(nom + " récupère " + points + " points de vie !");
+        } else {
+            System.out.println(nom + " est mort et ne peut pas être soigné !");
+        }
+    }
 
+    // Afficher toutes les infos
+    public void afficherInfos() {
+        System.out.println(nom + " - Vie: " + vie + " HP - Attaque: " + attaque);
+    }
 
-}
+}a
