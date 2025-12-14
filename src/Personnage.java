@@ -14,8 +14,8 @@ public class Personnage {
     // Constructeur alternatif
     public Personnage(String nom, int vie) {
         this.nom = nom;
-        this.vie = vie;
-        this.attaque = 0; // valeur par défaut
+        this.vie = 100;
+        this.attaque = 20; // valeur par défaut
     }
 
     /** Accesseurs */
@@ -47,17 +47,20 @@ public class Personnage {
     public boolean estVivant () {
         return vie >0;
     }
-
+// methode attaque une autre personne
     public void attaquer (Personnage cible) {
         if (this.estVivant()) {
 
             // la vie ne peut etre egale a zero
             cible.vie = cible.vie - this.attaque;
-            System.out.println (cible.nom + "perd" + this.attaque + "points de vie !")
+            System.out.println (cible.nom + "perd" + this.attaque + "points de vie !");
         } else {
             System.out.println (this.nom + "est mort et ne peut pas attaquer !");
         }
 
+    }
+    public void afficherEtat() {
+        System.out.println (nom + " - " + vie + "HP");
     }
 
 

@@ -16,34 +16,37 @@ System.out.print("Joueur 1, entre ton nom : ");
 // Joueur jouer1= new Joueur(nom); menm bagay ak liy anwo a;
 String joueur1 = scanner.nextLine();// liy sa ap retire le klas yo kreye;
 System.out.print("Joueur 2, entre ton nom : ");
-// mennm bagay pou jwe 2 a;  
+// mennm bagay pou jwe 2 a;
   // pou ke non jwe an stoke, nou dwe kreye yon new personnage de klas personnage lan ki ap gen non jouer1;
 // String nom = input.nextLine(); liy sa se li menm ki ap setup le nou kreye klas yo;
-// Joueur jouer2= new Joueur(nom); menm bagay ak liy anwo a; 
+// Joueur jouer2= new Joueur(nom); menm bagay ak liy anwo a;
 String joueur2 = scanner.nextLine();// liy sa ap retire le klas yo kreye;
 // joueur 1 an dwe change en getname de klas joueur  lan pou nou ka itilize non li nan tout jwèt la;
-  scanner.close();  
+  scanner.close();
 
 
- // Création d'un personnage avec le constructeur complet
-                Personnage guerrier = new Personnage("Chardy", 100, 25);
+ // Modification de la classe Jeu (Main)
+        // nap we Joueur mwen an rouge paskel pa we class Joueur an
+        public class Jeu {
+            public static void main(String[] args){
+                System.out.println ("Bienvenue dans le Jeu de Combat ! ");
+                System.out.print ("Joueur 1, entre ton nom : ");
+                String nomJ1 = scanner.nextLine ();
+                Joueur joueur1 = new Joueur (nomJ1, scanner );
 
-                // Création d'un personnage avec le constructeur alternatif (attaque par défaut = 0)
-                Personnage mage = new Personnage("Bierry", 80);
+                System.out.println ("Joueur 2, entre ton nom : ");
+                String nomJ2 = scanner.nextLine ();
+                Joueur joueur2 = new Joueur (nomJ2 , scanner );
 
-                // Affichage des informations
-                System.out.println("=== Personnage 1 ===");
-                System.out.println("Nom : " + guerrier.getNom());
-                System.out.println("Vie : " + guerrier.getVie());
-                System.out.println("Attaque : " + guerrier.getAttaque());
 
-                System.out.println("\n=== Personnage 2 ===");
-                System.out.println("Nom : " + mage.getNom());
-                System.out.println("Vie : " + mage.getVie());
-                System.out.println("Attaque : " + mage.getAttaque());
 
-                // Exemple de modification avec setter
-                mage.setAttaque(15);
-                System.out.println("\nAprès modification, attaque du mage : " + mage.getAttaque());
+            }
+
+
+        }
+
+
+
+
     }
 }
