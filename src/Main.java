@@ -56,5 +56,8 @@ public class Main {
         // String nomJ2 = scanner.nextLine ();
         //Joueur joueur2 = new Joueur (nomJ2 , scanner );
 
+                // Exemple de modification avec setter
+               
+                
     }
 }
