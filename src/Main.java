@@ -19,29 +19,18 @@ public class Main {
 
       
         System.out.println(joueur1.getNom() + ", cree ton equipe de  3 pesonnages.");
-        System.out.print("Nom du personnage 1 : ");
-        String nomPersonnage1 = scanner.nextLine();
-        Personnage personnage1 = new Personnage(nomPersonnage1);
-        System.out.print("Nom du personnage 2 : ");
-        String nomPersonnage2 = scanner.nextLine();
-        Personnage personnage2 = new Personnage(nomPersonnage2);
-        System.out.print("Nom du personnage 3 : ");
-        String nomPersonnage3 = scanner.nextLine();
-        Personnage personnage3 = new Personnage(nomPersonnage3);
-        System.out.println();
-
-        System.out.println(joueur2.getNom() + ", cree ton equipe de  3 pesonnages.");
-        System.out.print("Nom du personnage 1 : ");
-        String nomPersonnage4 = scanner.nextLine();
-        Personnage personnage4 = new Personnage(nomPersonnage4);
-        System.out.print("Nom du personnage 2 : ");
-        String nomPersonnage5 = scanner.nextLine();
-        Personnage personnage5 = new Personnage(nomPersonnage5);
-        System.out.print("Nom du personnage 3 : ");
-        String nomPersonnage6 = scanner.nextLine();
-        Personnage personnage6 = new Personnage(nomPersonnage6);
-        System.out.println();
-     
-         scanner.close();       
-    }
-}
+        Personnage[] equipeJoueur1 = new Personnage[3];
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Nom du personnage " + (i + 1) + " : ");
+            String nomPersonnage1 = scanner.nextLine();
+            Personnage personnage = new Personnage(nomPersonnage1);
+            equipeJoueur1[i] = personnage;
+            
+        }
+        for (Personnage personnage : equipeJoueur1) {
+          System.out.println();
+            System.out.println(personnage);
+        }
+}}
+        
+    
