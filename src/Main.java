@@ -8,7 +8,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println();
-        System.out.println("Bienvenue dans le jeu de combat !");
+        System.out.println("Bienvenue dans le Jeu de Combat !");
         System.out.print("Joueur 1, entre ton nom : ");
         String nomJoueur1 = scanner.nextLine();
         Joueur joueur1 = new Joueur(nomJoueur1);
@@ -18,7 +18,7 @@ public class Main {
         System.out.println();
 
 
-        System.out.println(joueur1.getNom() + ", crée ton équipe de  3 personages.");
+        System.out.println(joueur1.getNom() + ", crée ton équipe, choisis 3 personages.");
         Personnage[] equipeJoueur1 = new Personnage[3];
         for (int i = 0; i < 3; i++) {
             System.out.print("Nom du personnage " + (i + 1) + " : ");
@@ -33,7 +33,7 @@ public class Main {
         }
 
         //l'equipe du joueur 2
-        System.out.println("\n " + nomJoueur2 + ", cree ton equipe de 3 personnage : ");
+        System.out.println("\n " + nomJoueur2 + ", crée ton équipe choisi 3 personnages : ");
         Personnage[] equipeJoueur2 = new Personnage[3];
         for (int i=0; i <3; i++){
             System.out.println(" Nom du Personnage " + (i+1) + ":");
@@ -46,7 +46,7 @@ public class Main {
         }
         //on affiche maintenant les equipes
         System.out.println();
-        System.out.println("equipes crees avec succes");
+        System.out.println("équipes créés avec succès");
 
 
 
@@ -67,13 +67,13 @@ public class Main {
             if (!joueur2.aEncoreDesPersonnagesVivants()) break;
 
             System.out.println();
-            System.out.println("Etat de l'equipe");
+            System.out.println("État de l'équipe");
             joueur2.afficherEquipe();
 
 
             // tour Joueur 2
             Personnage attaquant2 = joueur2.choisirPersonnageVivant();
-            System.out.println(joueur2.getNom() + " attaque !");
+            System.out.println(joueur2.getNom() + " attaque !"); // Mitovens eskew we erreur sa ?
             joueur1.afficherEquipe();
             System.out.print("Choisis une cible chez " + joueur1.getNom() + " (1-3) : ");
             int cibleIndex2 = scanner.nextInt();
@@ -86,12 +86,12 @@ public class Main {
 
 
             System.out.println();
-            System.out.println("Etat de l'equipe");
+            System.out.println("État de l'équipe");
             joueur1.afficherEquipe();
 
 
         }
-
+        .
     }
 }
 
