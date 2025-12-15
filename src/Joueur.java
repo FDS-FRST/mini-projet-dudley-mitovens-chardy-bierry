@@ -4,6 +4,14 @@ public class Joueur {
     private String nom;
     private Personnage[] equipe;
 
+public String getNom() {
+        return nom;
+    }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+
     //                 CONSTRUCTEUR
     // Crée un nouveau joueur avec son nom
     public Joueur(String nom) {
@@ -39,3 +47,4 @@ public class Joueur {
             }
         }
     }
+}
