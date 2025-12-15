@@ -6,9 +6,9 @@ public class Personnage {
 
     // Constructeur complet
     public Personnage(String nom, int vie, int attaque) {
-        this.nom = nom;
-        this.vie = vie;
-        this.attaque = attaque;
+        this.nom = nom; //non an met rete konsa paske moun se sel la nap ba li posibilite poul bay non li vle a pesonaj li yo
+        this.vie = vie;// vi dwe tou monte a 100 bro paske se li menm tout jwe ap itilize. 
+        this.attaque = attaque;// sa dwe inisialize tou ak 20 bro paske se li menm tout jwe ap itilize.
     }
 
     // Constructeur alternatif
@@ -16,6 +16,12 @@ public class Personnage {
         this.nom = nom;
         this.vie = 100;   // valeur par défaut
         this.attaque = 20; // valeur par défaut
+    }
+
+    public Personnage(String nom, int vie) {
+        this.nom = nom;                             //nou pa bezwen mete non an nan constructor alternatif la paske nou vle ke jwe a ka bay non li vle a.
+        this.vie = vie;
+        this.attaque = 0; // valeur par défaut
     }
 
     /** Accesseurs */
@@ -37,6 +43,10 @@ public class Personnage {
     public void attaquer(Personnage cible) {
         if (this.estVivant()) {
             cible.defendre(this.attaque);
+
+            // la vie ne peut etre egale a zero
+            cible.vie = cible.vie - this.attaque;
+            System.out.println (cible.nom + "perd" + this.attaque + "points de vie !");
         } else {
             System.out.println(this.nom + " est mort et ne peut pas attaquer !");
         }
