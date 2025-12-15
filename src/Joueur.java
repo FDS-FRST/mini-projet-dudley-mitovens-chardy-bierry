@@ -16,7 +16,7 @@ public String getNom() {
     // Crée un nouveau joueur avec son nom
     public Joueur(String nom) {
         this.nom = nom;
-        this.equipe = new Personnage[3];
+        this.equipe = new Personnage[3]; 
     }
     //                  MÉTHODE 1
     public Personnage choisirPersonnageVivant() {
