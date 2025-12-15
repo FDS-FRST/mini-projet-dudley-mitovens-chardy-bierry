@@ -31,16 +31,24 @@ public class Main {
           System.out.println();
             System.out.println(personnage);
         }
+
+        //l'equipe du joueur 2
+        System.out.println("\n " + nomJoueur2 + ", cree ton equipe de 3 personnage : ");
+        Personnage[] equipeJoueur2 = new Personnage[3];
+        for (int i=0; i <3; i++){
+            System.out.println(" Nom du Personnage " + (i+1) + ":");
+            String nom = scanner.nextLine();
+            equipeJoueur2[i] = new Personnage(nom,100,20);
+        }
+        for (Personnage personnage : equipeJoueur1) {
+            System.out.println();
+            System.out.println(personnage);
+        }
+        //on affiche maintenant les equipes
+        System.out.println();
+        System.out.println("equipe cree avec succes");
 }
 
-// System.out.println("Bienvenue dans le Jeu de Combat !")
-   /* System.out.print("Joueur 1, entre ton nom : ");
-        String nomJ1 = scanner.nextLine();
-        Joueur joueur1 = new Joueur(nomJ1, scanner);
-
-        System.out.print("Joueur 2, entre ton nom : ");
-        String nomJ2 = scanner.nextLine();
-        Joueur joueur2 = new Joueur(nomJ2, scanner); */
 
     /* Int tour = 1;
     while (joueur1. aEncoreDesPersonnagesVivants () && joueur2.aEncoreDesPersonnesVivants ()){
