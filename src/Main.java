@@ -22,16 +22,53 @@ public class Main {
         Personnage[] equipeJoueur1 = new Personnage[3];
         for (int i = 0; i < 3; i++) {
             System.out.print("Nom du personnage " + (i + 1) + " : ");
-            String nomPersonnage1 = scanner.nextLine();
-            Personnage personnage = new Personnage(nomPersonnage1);
-            equipeJoueur1[i] = personnage;
+            String nomPersonnage = scanner.nextLine();
+            Personnage personnageJ1 = new Personnage(nomPersonnage);
+             joueur1.getEquipe()[i] = personnageJ1;  
 
         }
-        for (Personnage personnage : equipeJoueur1) {
+        for (Personnage personnage1 : equipeJoueur1) {
           System.out.println();
-            System.out.println(personnage);
+            System.out.println(personnage1);
         }
+
+      System.out.println("Choix de l'attaquant :");
+      
+Personnage personnageJ1 = joueur1.getEquipe()[0]; // 
+System.out.println(joueur1.getNom() + " choisit " + personnageJ1.getNom() + " comme attaquant."); 
+
+      }}
+      /*   int tour = 1;
+
+    while (joueur1.aEncoreDesPersonnagesVivants() && joueur2.aEncoreDesPersonnagesVivants()) {
+        System.out.println("\n ----- Tour " + tour + " --- ");
+
+        public void setTour(int tour) {
+          this.tour = tour;
+        }
+
+    {
+      System.out.println("\n ----- Tour " + tour + " --- ");
+
+      // Tour du Joueur 1
+         Personnage personnag1 = joueur1.chosirPersonnageVivant (scanner);
+         System.out.println(joueur1.getNom() + " attaque !");
+            joueur2.afficherEquipe();
+            System.out.print("Choisis une cible chez " + joueur2.getNom() + " (1-3) : ");
+            int cibleIndex1 = scanner.nextInt();
+            scanner.nextLine();
+            Personnage cible1 = joueur2.getPersonnage(cibleIndex1 - 1);
+            attaquant1.attaquer(cible1);
+            joueur2.afficherEquipe();
+
+            if (!joueur2.aEncoreDesPersonnagesVivants()) break;
+
+    
+
 }
+    public int getTour() {
+      return tour;
+    }}}
 
 // System.out.println("Bienvenue dans le Jeu de Combat !")
    /* System.out.print("Joueur 1, entre ton nom : ");
@@ -67,6 +104,6 @@ public class Main {
 
 
 
-}
+
 
 

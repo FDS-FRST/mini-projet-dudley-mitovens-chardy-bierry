@@ -10,6 +10,9 @@ public String getNom() {
     public void setNom(String nom) {
         this.nom = nom;
     }
+    public Personnage[] getEquipe() {
+    return equipe;
+}
 
 
     //                 CONSTRUCTEUR
