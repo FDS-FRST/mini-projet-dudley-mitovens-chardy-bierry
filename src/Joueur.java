@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Joueur {
     //                ATTRIBUTS
     // Caractéristiques du joueur
@@ -12,7 +14,10 @@ public String getNom() {
     }
     public Personnage[] getEquipe() {
     return equipe;
-}
+    }
+public void setEquipe(Personnage[] equipe) {
+        this.equipe = equipe;
+    }
 
 
     //                 CONSTRUCTEUR
@@ -22,10 +27,10 @@ public String getNom() {
         this.equipe = new Personnage[3]; 
     }
     //                  MÉTHODE 1
-    public Personnage choisirPersonnageVivant() {
-        for (Personnage p : equipe) {
-            if (p != null && p.estVivant()) {
-                return p;
+    public Personnage choisirPersonnageVivant(Scanner scanner) {
+        for (Personnage personnage1  : equipe) {                        //Manque de coonditions pour verifier le choix du personnage, a haque j'entre un numero ou lettre , le programme s'arrete.
+            if (personnage1 != null && personnage1.estVivant()) {       // Manque de conditon pour verifier si le personnage est a zero pour qu'il ne soit pas choisi.
+                return personnage1;
             }
         }
         return null;  // Aucun personnage vivant
@@ -42,9 +47,9 @@ public String getNom() {
     }
     // Affiche tous les personnages de l'équipe
     public void afficherEquipe() {
-        System.out.println("Équipe de " + nom + ":");
+        System.out.println("Équipe de " + this.nom + ":");
         // Affiche chaque personnage qui existe
-        for (Personnage p : equipe) {
+        for (Personnage p : this.equipe) {      // method sa manke yon paramet ki ta dwe afiche pesonaj ekip yo ak nimero nomalman, pou fasilite chwa yo.
             if (p != null) {
                 p.afficherEtat();
             }

@@ -45,8 +45,9 @@ public class Personnage {
             cible.defendre(this.attaque);
 
             // la vie ne peut etre egale a zero
-            cible.vie = cible.vie - this.attaque;
-            System.out.println (cible.nom + "perd" + this.attaque + "points de vie !");
+            //cible.vie = cible.vie - this.attaque;  // par le fait que vie est private, on ne peut pas y acceder directement depuis une autre instance et aussi l'utilisation de la methode defenre fait deja le travail.
+            // lem kite kitel, li retire 2 fwa na vi an epi tou,li pa respekte regle ki di vi pa dwe negatif.
+            System.out.println (cible.nom + "perd" + this.attaque + "points de vie !");// nou pap bezwen sa paske metod defendre lan genyenl deja, vin fe gen de repetisyon nan afichaj la.
         } else {
             System.out.println(this.nom + " est mort et ne peut pas attaquer !");
         }

@@ -25,120 +25,57 @@ public class Main {
             String nomPersonnage = scanner.nextLine();
             Personnage personnageJ1 = new Personnage(nomPersonnage);
              joueur1.getEquipe()[i] = personnageJ1;  
-
         }
-        for (Personnage personnage1 : equipeJoueur1) {
-          System.out.println();
-            System.out.println(personnage1);
-        }
+        System.out.println();
 
-      System.out.println("Choix de l'attaquant :");
-      
-Personnage personnageJ1 = joueur1.getEquipe()[0]; // 
-System.out.println(joueur1.getNom() + " choisit " + personnageJ1.getNom() + " comme attaquant."); 
-
-      }}
-      /*   int tour = 1;
-
-    while (joueur1.aEncoreDesPersonnagesVivants() && joueur2.aEncoreDesPersonnagesVivants()) {
-        System.out.println("\n ----- Tour " + tour + " --- ");
-
-        public void setTour(int tour) {
-          this.tour = tour;
-        }
-
-    {
-      System.out.println("\n ----- Tour " + tour + " --- ");
-
-      // Tour du Joueur 1
-         Personnage personnag1 = joueur1.chosirPersonnageVivant (scanner);
-         System.out.println(joueur1.getNom() + " attaque !");
-            joueur2.afficherEquipe();
-            System.out.print("Choisis une cible chez " + joueur2.getNom() + " (1-3) : ");
-            int cibleIndex1 = scanner.nextInt();
-            scanner.nextLine();
-            Personnage cible1 = joueur2.getPersonnage(cibleIndex1 - 1);
-            attaquant1.attaquer(cible1);
-            joueur2.afficherEquipe();
-
-            if (!joueur2.aEncoreDesPersonnagesVivants()) break;
-
-    
-
-}
-    public int getTour() {
-      return tour;
-    }}}
-
-        //l'equipe du joueur 2
+       
+//l'equipe du joueur 2
         System.out.println("\n " + nomJoueur2 + ", cree ton equipe de 3 personnage : ");
         Personnage[] equipeJoueur2 = new Personnage[3];
-        for (int i=0; i <3; i++){
-            System.out.println(" Nom du Personnage " + (i+1) + ":");
-            String nom = scanner.nextLine();
-            equipeJoueur2[i] = new Personnage(nom,100,20);
+        for (int i =0; i <3; i++){
+            System.out.print(" Nom du Personnage " + (i+1) + ":");
+            String nompersonnage = scanner.nextLine();
+            Personnage personnageJ2 = new Personnage(nompersonnage);
+             joueur2.getEquipe()[i] = personnageJ2;
         }
-        for (Personnage personnage : equipeJoueur1) {
-            System.out.println();
-            System.out.println(personnage);
-        }
-        //on affiche maintenant les equipes
         System.out.println();
-        System.out.println("equipes crees avec succes");
 
-
-
-        int tour = 1;
+int tour = 1;
+        // Boucle de jeu
         while (joueur1. aEncoreDesPersonnagesVivants () && joueur2.aEncoreDesPersonnagesVivants () ) {
             System.out.println("\n ----- Tour " + tour + "--- ");
             // Tour du Joueur 1
-           // Personnage attaquant1 = joueur1.choisirPersonnageVivant(scanner);
+           Personnage attaquant1 = joueur1.choisirPersonnageVivant(scanner);// Besoin dans cette definiee, un system out qui va permettre au joueur de choisir son personnage, bien sur avec le numero dedans.
             System.out.println(joueur1.getNom() + " attaque !");
+           System.out.print("Choisis une cible chez " + joueur2.getNom() + " (1-3) : ");
+            int cible1 = scanner.nextInt();
+            scanner.nextLine(); 
+            Personnage adversaire1 = (joueur2.getEquipe()[cible1 - 1]);
+            attaquant1.attaquer(adversaire1);
             joueur2.afficherEquipe();
-            System.out.print("Choisis une cible chez " + joueur2.getNom() + " (1-3) : ");
-            int cibleIndex1 = scanner.nextInt();
-            scanner.nextLine();
-            //Personnage cible1 = joueur2.getNom(cibleIndex1 - 1);
-            //attaquant1.attaquer(cible1);
-            joueur2.afficherEquipe();
-
             if (!joueur2.aEncoreDesPersonnagesVivants()) break;
-
-            System.out.println();
-            System.out.println("Etat de l'equipe");
-            joueur2.afficherEquipe();
-
 
             // tour Joueur 2
-            Personnage attaquant2 = joueur2.choisirPersonnageVivant();
+            Personnage attaquant2 = joueur2.choisirPersonnageVivant(scanner); 
             System.out.println(joueur2.getNom() + " attaque !");
-            joueur1.afficherEquipe();
             System.out.print("Choisis une cible chez " + joueur1.getNom() + " (1-3) : ");
-            int cibleIndex2 = scanner.nextInt();
+            int cible2 = scanner.nextInt(); 
             scanner.nextLine();
-           // Personnage cible2 = joueur1.getPersonnage(cibleIndex1 - 1);
-            //attaquant2.attaquer(cible2);
+            Personnage adversaire2 = joueur1.getEquipe()[cible2 - 1];
+            attaquant2.attaquer(adversaire2);
             joueur1.afficherEquipe();
-
-            if (!joueur2.aEncoreDesPersonnagesVivants()) break;
-
-
-            System.out.println();
-            System.out.println("Etat de l'equipe");
-            joueur1.afficherEquipe();
-
-
+            tour++;
+    
+        }        // Fin du jeu
+        if (joueur1.aEncoreDesPersonnagesVivants()) {
+            System.out.println("\n " + joueur1.getNom() + " a gagné la partie !");
+        } else {
+            System.out.println("\n " + joueur2.getNom() + " a gagné la partie !");
         }
-
-    }
-     nou ka fe de meme pou Tour 2 an.
-
-     */
+        System.out.println("\n Le jeu est terminé !");
 
 
 
+scanner.close();
 
-
-}
-
-
+}}
