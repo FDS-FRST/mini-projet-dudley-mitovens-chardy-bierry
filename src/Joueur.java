@@ -56,3 +56,4 @@ public void setEquipe(Personnage[] equipe) {
         }
     }
 }
+r
