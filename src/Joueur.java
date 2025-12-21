@@ -26,14 +26,26 @@ public void setEquipe(Personnage[] equipe) {
         this.nom = nom;
         this.equipe = new Personnage[3]; 
     }
-    //                  MÉTHODE 1
+    //                 METHODES 1
     public Personnage choisirPersonnageVivant(Scanner scanner) {
-        for (Personnage personnage1  : equipe) {                        //Manque de coonditions pour verifier le choix du personnage, a haque j'entre un numero ou lettre , le programme s'arrete.
-            if (personnage1 != null && personnage1.estVivant()) {       // Manque de conditon pour verifier si le personnage est a zero pour qu'il ne soit pas choisi.
-                return personnage1;
-            }
+    while (true) {
+        System.out.print(this.nom + ", choisis le numéro de ton attaquant (1-3) : ");
+        
+        if (!scanner.hasNextInt()) { 
+            System.out.println("Erreur : Entre un chiffre !"); // Verification de l'entrée, si ce n'est pas un chiffre, on affiche ce message
+            continue;
         }
-        return null;  // Aucun personnage vivant
+
+        int choix = scanner.nextInt();
+        int index = choix - 1; 
+
+        // Verification de la validité du choix et si le personnage est vivant
+        if (index >= 0 && index < equipe.length && equipe[index] != null && equipe[index].estVivant()) {
+            return equipe[index];
+        } else {
+            System.out.println("Personnage est mort ! Choisis un autre personnage vivant.");
+        }
+    }
     }
     //                   METHODE 2
     public boolean aEncoreDesPersonnagesVivants() {
@@ -49,10 +61,15 @@ public void setEquipe(Personnage[] equipe) {
     public void afficherEquipe() {
         System.out.println("Équipe de " + this.nom + ":");
         // Affiche chaque personnage qui existe
-        for (Personnage p : this.equipe) {      // method sa manke yon paramet ki ta dwe afiche pesonaj ekip yo ak nimero nomalman, pou fasilite chwa yo.
+        for (int i = 0; i < equipe.length; i++) {
+            Personnage p = equipe[i];
             if (p != null) {
-                p.afficherEtat();
+                System.out.println((i + 1) + ". " + p.getNom() + " - "+ p.getVie() + " HP");
+            }
+            else {
+                System.out.println((i + 1) + ". [Vide]");
             }
         }
     }
 }
+
