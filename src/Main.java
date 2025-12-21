@@ -32,6 +32,9 @@ public class Main {
         }
         System.out.println();
 
+        System.out.println("\n Appuyer sur Entree pour commencer le combat...");
+        scanner.nextLine();
+
         int tour = 1;
         // Boucle de jeu
         while (joueur1.aEncoreDesPersonnagesVivants() && joueur2.aEncoreDesPersonnagesVivants()) {
